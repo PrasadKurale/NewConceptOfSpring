@@ -1,4 +1,5 @@
 package com.csi.controller;
+
 import com.csi.exception.RecordNotFoundException;
 import com.csi.model.Customer;
 import com.csi.service.CustomerServiceImpl;
@@ -57,9 +58,11 @@ public class CustomerController {
     @GetMapping
     public String sayHello()
     {
-        return "HII Superman and Spiderman";
+        return "HII SPIDERMAN";
     }
-
-
-
+    @GetMapping
+    public String sayService("/service")
+    {
+        return "Service is good";
+    }
 }
