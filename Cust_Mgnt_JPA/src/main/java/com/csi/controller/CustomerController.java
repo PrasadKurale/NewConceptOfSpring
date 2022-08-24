@@ -60,9 +60,13 @@ public class CustomerController {
     {
         return "HII SPIDERMAN";
     }
-    @GetMapping
-    public String sayService("/service")
+    @GetMapping("/service")
+    public String sayService()
     {
         return "Service is good";
+    }
+    @GetMapping("/hello")
+    public  String hello(){
+        return "Welcome to csi";
     }
 }
