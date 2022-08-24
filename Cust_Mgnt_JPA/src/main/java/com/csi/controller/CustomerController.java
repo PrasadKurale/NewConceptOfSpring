@@ -19,17 +19,17 @@ public class CustomerController {
     CustomerServiceImpl customerServiceImpl;
 
     @PostMapping("/savedata")  //webservices
-    public ResponseEntity<Customer> saveData(@RequestBody Customer customer){
+    public ResponseEntity<Customer> saveData(@RequestBody Customer customer) {
         return ResponseEntity.ok(customerServiceImpl.saveData(customer));
     }
 
     @GetMapping("/getalldata")
-    public ResponseEntity<List<Customer>> getAllData(){
+    public ResponseEntity<List<Customer>> getAllData() {
         return ResponseEntity.ok(customerServiceImpl.getAllData());
     }
 
     @GetMapping("/getdatabyid/{custId}")
-    public ResponseEntity<Optional<Customer>> getDataById(@PathVariable long custId){
+    public ResponseEntity<Optional<Customer>> getDataById(@PathVariable long custId) {
         return ResponseEntity.ok(customerServiceImpl.getDataById(custId));
     }
 
@@ -37,7 +37,7 @@ public class CustomerController {
     public ResponseEntity<Customer> updateData(@PathVariable long custId, @RequestBody Customer customer) throws RecordNotFoundException { //customer here we passessed data from request payload or swagger UI,this customer is from Swagger UI
         // Exception Code
 
-        Customer customer1 = customerServiceImpl.getDataById(custId).orElseThrow(()->new RecordNotFoundException("customer ID Does Not exist")); //this customer1 is  our database
+        Customer customer1 = customerServiceImpl.getDataById(custId).orElseThrow(() -> new RecordNotFoundException("customer ID Does Not exist")); //this customer1 is  our database
 
         customer1.setCustName(customer.getCustName());
         customer1.setCustAddress(customer.getCustAddress());
@@ -50,23 +50,28 @@ public class CustomerController {
 
 
     @DeleteMapping("/deletedata/{custId}")
-    public ResponseEntity<String> deleteDataById(@PathVariable long custId){
+    public ResponseEntity<String> deleteDataById(@PathVariable long custId) {
         customerServiceImpl.deleteData(custId);
         return ResponseEntity.ok("Data Deleted Successfully");
     }
 
     @GetMapping
-    public String sayHello()
-    {
+    public String sayHello() {
         return "HII SPIDERMAN";
     }
+
     @GetMapping("/service")
-    public String sayService()
-    {
+    public String sayService() {
         return "Service is good";
     }
+
     @GetMapping("/hello")
-    public  String hello(){
+    public String hello() {
         return "Welcome to csi";
+    }
+
+    @GetMapping("/welcome")
+    public String welcome() {
+        return "Welcome to full stack";
     }
 }
