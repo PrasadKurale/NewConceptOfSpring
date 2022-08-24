@@ -74,4 +74,10 @@ public class CustomerController {
     public String welcome() {
         return "Welcome to full stack";
     }
+
+    @GetMapping("/welcomes")
+    public String welcomes() {
+        return "Welcome to full stack java developer";
+    }
+
 }
