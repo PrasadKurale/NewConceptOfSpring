@@ -65,8 +65,8 @@ public class CustomerController {
     {
         return "Service is good";
     }
-    @GetMapping("/hii")
-    public  String hi(){
-        return "HII";
+    @GetMapping("/hello")
+    public  String hello(){
+        return "Welcome to csi";
     }
 }
