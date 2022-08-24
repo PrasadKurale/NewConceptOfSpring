@@ -60,5 +60,9 @@ public class CustomerController {
     {
         return "HII SPIDERMAN";
     }
-
+    @GetMapping
+    public String sayService("/service")
+    {
+        return "Service is good";
+    }
 }
